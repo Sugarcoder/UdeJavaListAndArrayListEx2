@@ -37,4 +37,13 @@ public class GroceryList {
         // Bread
     }
 
+    public String findItem(String searchItem) {
+        boolean exists = groceryList.contains(searchItem);   // will go through the list and find the item, less code than a for loop
+        if(exists) {
+            int position = groceryList.indexOf(searchItem);
+            return groceryList.get(position);
+        }
+        return null;    // the item wasn't found
+    }
+
 }
