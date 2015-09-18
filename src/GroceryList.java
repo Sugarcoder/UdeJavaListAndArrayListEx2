@@ -22,13 +22,36 @@ public class GroceryList {
         }
     }
 
+    public void modifyGroceryItem(String currentItem, String newItem) {
+        int position = findItem(currentItem);
+        if(position >= 0) {
+            modifyGroceryItem(position, newItem);
+        }
+    }
 
-    public void modifyGroceryItem(int position, String newItem) {
+
+    private void modifyGroceryItem(int position, String newItem) {
         groceryList.set(position, newItem);
         System.out.println("Grocery item " + (position+1) + " has been modified.");
     }
 
 
+
+
+    private void removeGroceryItem(int position) {
+        groceryList.remove(position);
+    }
+
+
+    public void removeGroceryItem(String item) {
+        int position = findItem(item);
+        if(position>=0) {
+            removeGroceryItem(position);
+        }
+    }
+
+
+    /*
     public void removeGroceryItem(int position) {
         String theItem = groceryList.get(position);
         groceryList.remove(position);
@@ -36,7 +59,25 @@ public class GroceryList {
         // cheese
         // Bread
     }
+    */
 
+
+    private int findItem(String searchItem) {
+        return groceryList.indexOf(searchItem);
+    }
+
+
+    public boolean onFile(String searchItem) {
+        int position = findItem(searchItem);
+        if(position>=0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+
+    /*
     public String findItem(String searchItem) {
         boolean exists = groceryList.contains(searchItem);   // will go through the list and find the item, less code than a for loop
         if(exists) {
@@ -45,5 +86,6 @@ public class GroceryList {
         }
         return null;    // the item wasn't found
     }
+    */
 
 }
