@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
@@ -39,6 +40,9 @@ public class Main {
                     searchForItem();
                     break;
                 case 6:
+                    processArrayList();
+
+                case 7:
                     quit = true;
                     break;
             }
@@ -102,6 +106,22 @@ public class Main {
         }
         */
     }
+
+    public static void processArrayList() {
+        ArrayList<String> newArray = new ArrayList<>();
+        newArray.addAll(groceryList.getGroceryList());
+
+        // Another way of coding this.
+        ArrayList<String> nextArray = new ArrayList<String>(groceryList.getGroceryList());
+
+        // Two ways of converting an arraylist back to an array.
+
+        String[] myArray = new String[groceryList.getGroceryList().size()];
+        myArray = groceryList.getGroceryList().toArray(myArray);
+
+
+    }
+
 
 
 }
